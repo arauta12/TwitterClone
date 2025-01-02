@@ -1,0 +1,114 @@
+/* Header */
+/* FIXME: Add line below buttons for line hover & click */
+
+* {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+p {
+    font-family: sans-serif;
+}
+
+header, main, footer {
+    max-width: 1000px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.imgIcon {
+    width: 100px;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    display: block;
+}
+
+.button-cont {
+    width: 50%;
+    display: inline-block;
+    margin: auto;
+}
+
+.head {
+    text-align: center;
+    display: inline-block;
+    margin: auto;
+    margin-bottom: 0;
+    padding-bottom: 15px;
+    border: none;
+    border-bottom: 5px solid white;
+    background-color: white;
+    width: 100%;
+    font-size: 1.5rem;
+    color: grey;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.15s;
+}
+
+.head:hover {
+    color: black;
+    border-bottom-color: lightblue;
+}
+
+.head:active {
+    color: black;
+    border-bottom-color: rgb(101, 150, 205);
+}
+
+hr {
+    margin: 0;
+    border: 1px solid lightgrey;
+}
+
+/* main */
+
+main {
+    height: 450px;
+}
+
+/* footer */
+footer {
+    margin-top: 50px;
+    margin-bottom: 40px;
+}
+
+.twtImg {
+    width: 50px;
+    margin-bottom: 10px;
+}
+
+.addTwt {
+    width: 200px;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+    padding: 10px;
+    background-color: white;
+    border: 2px solid lightgrey;
+    border-radius: 10px;
+    transition: opacity 0.15s;
+}
+
+.addTwt:hover {
+    opacity: 0.7;
+}
+
+.addTwt:active {
+    opacity: 0.5;
+}
+
+.buttonTxt {
+    text-align: center;
+    display: inline-block;
+    margin: auto;
+    margin-bottom: 0;
+    background-color: none;
+    width: 100%;
+    font-size: 1.5rem;
+    color: grey;
+    font-weight: bold;
+    cursor: pointer;
+}
