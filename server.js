@@ -4,7 +4,7 @@ const app = express();
 const path = require('path');
 const mongoose = require('mongoose');
 const connectDB = require('./config/dbConfig');
-const PORT = process.env.PORT || 3500;
+const PORT = process.env.PORT || process.env.DEF_PORT;
 
 connectDB();
 
