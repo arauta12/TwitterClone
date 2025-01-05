@@ -1,3 +1,5 @@
+// FIXME: css for footer(*), latest tweets, images in tweets, other options...
+
 require('dotenv').config();
 const express = require('express');
 const app = express();
@@ -14,7 +16,17 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/', express.static(path.join(__dirname, '/public')));
 
 app.use('/', require('./route/root'));
-app.use('/posts', require('./route/api/posts'));
+app.use('/login', require('./route/login'));
+app.get('/success', (req, res) => {
+    res.send(`
+        <h1>Success! Logging in...</h1>
+        <script>
+            setTimeout(() => location.href='/home?user=${process.env.USER}', 1000);
+        </script>
+    `);
+});
+app.use('^/home', require('./route/api/home'));
+app.use('^/posts', require('./route/api/posts'));
 
 app.all('*', (req, res) => {
     console.log(`${req.method} request for ${req.url} ${req}...`);

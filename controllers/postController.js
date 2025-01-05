@@ -3,8 +3,6 @@ const path = require('path');
 
 // FIXME: display no posts page instead of json message
 const getPosts = async (req, res) => {
-    console.log(`${req.method} request for ${req.url}...`);
-
     const posts = await Post.find();
     posts.reverse();
     if (!posts) {
@@ -26,9 +24,10 @@ const createPost = async (req, res) => {
             image: "",
             content: req.body.tweet
         });
-        
-        res.sendFile(path.join(__dirname, '..', 'views', 'index.html'));
+
+        res.redirect('/home');
     } catch (err) {
+        console.error(err);
         console.log('Could not create the post. Try again.');
     }
 };
