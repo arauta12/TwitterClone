@@ -6,16 +6,12 @@ const postSchema = new Schema({
         type: String,
         required: true
     },
-    profileImg: {
-        type: Buffer,
-        required: true
-    },
     date: {
         type: Date,
         required: true
     },
     image: {
-        type: Buffer,
+        type: String,
         required: false
     },
     content: {
@@ -24,4 +20,4 @@ const postSchema = new Schema({
     }
 });
 
-module.exports = mongoose.model('TwitterClone.Posts', postSchema);
+module.exports = mongoose.model('Post', postSchema);

@@ -3,30 +3,54 @@
 
 * {
     width: 100%;
-    overflow-x: hidden;
-}
-
-p {
+    /* overflow-x: hidden; */
+    /* overflow-y: hidden; */
     font-family: sans-serif;
 }
 
-header, main, footer {
+html {
+    overflow-x: hidden;
+}
+
+body {
     max-width: 1000px;
+    height: 100%;
+    margin: auto;
+    border: 3px solid none;
+    /* box-shadow: 0 4px 8px rgba(0,0,0,0.2),
+        0 6px 20px 0 rgba(0,0,0,0.13); */
+    border-top: none;
+    border-bottom: none;
+}
+
+header, main, footer {
     width: 100%;
+    max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
+}
+
+header {
+    height: 220px;
+    padding: 20px;
+}
+
+main {
+    overflow-y: auto;
+    padding-left: 10px;
+    /* padding-right: 20px; */
 }
 
 .imgIcon {
     width: 100px;
     margin: auto;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin-top: 30px;
+    margin-bottom: 30px;
     display: block;
 }
 
 .button-cont {
-    width: 50%;
+    width: 45%;
     display: inline-block;
     margin: auto;
 }
@@ -64,19 +88,38 @@ hr {
 }
 
 /* main */
-
 main {
-    height: 450px;
+    height: 50vh;
+    overflow-x: hidden;
+}
+
+.postBox {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+}
+.postContL {
+    height: 100%;
+    width: 100px;
+    margin-right: 20px;
+}
+
+.post-user {
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.post-content {
+    margin: 0;
 }
 
 /* footer */
 footer {
-    margin-top: 50px;
-    margin-bottom: 40px;
+    height: 200px;
 }
 
-.twtImg {
-    width: 50px;
+img {
+    width: 100px;
     margin-bottom: 10px;
 }
 
@@ -84,7 +127,6 @@ footer {
     width: 200px;
     cursor: pointer;
     display: block;
-    margin: auto;
     padding: 10px;
     background-color: white;
     border: 2px solid lightgrey;

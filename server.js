@@ -9,13 +9,15 @@ const PORT = process.env.PORT || process.env.DEF_PORT;
 connectDB();
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 
 app.use('/', express.static(path.join(__dirname, '/public')));
+
 app.use('/', require('./route/root'));
+app.use('/posts', require('./route/api/posts'));
 
 app.all('*', (req, res) => {
-    console.log(`${req.method} request for ${req.url}...`);
+    console.log(`${req.method} request for ${req.url} ${req}...`);
     res.status(404);
     if (req.accepts('html')) {
         res.sendFile(path.join(__dirname, 'views', '404.html'));
