@@ -13,7 +13,7 @@ const getPosts = async (req, res) => {
 };
 
 const createPost = async (req, res) => {
-    console.log(`${req.method} ${req.url}: ${req.body.username} posted: ${req.body.tweet}.`)
+    // Improve to another html page with back link?
     if (!req?.body?.username) return res.status(400).json({ 'message': 'Must have username' });
     const postDate = new Date();
 
@@ -24,8 +24,7 @@ const createPost = async (req, res) => {
             image: "",
             content: req.body.tweet
         });
-
-        res.redirect('/home');
+        res.redirect('/');
     } catch (err) {
         console.error(err);
         console.log('Could not create the post. Try again.');

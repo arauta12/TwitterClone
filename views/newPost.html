@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twitter Clone</title>
+    <link rel="stylesheet" href="css/newPost.css">
+    <link rel="image" href="imgs/anon-user">
+</head>
+<body>
+    <header class="twtHead">
+        <!-- Logo -->
+        <img class="imgIcon" src="/imgs/twitterclonebird.jpg" alt="a blue bird"/>
+        <div class="button-cont">
+            <button class="head" id="home" onclick="location.href='http://localhost:5000/'">Home</button></div><div class="button-cont"><button 
+                class="head" 
+                id="latest"
+                onclick="location.href=`http://localhost:5000/newPost`;"
+        >New Post</button></div>
+    </header>
+    <hr>
+    <main id="posts">
+        <form method="post" id="twtForm" action="http://localhost:5000/posts">
+            <div class="infoBox">
+                <div class="postContL">
+                    <img src="imgs/anon-user.jpg" alt="profile picture" />
+                    <label class="username" for="user"><strong>Username</strong>:
+                        <input 
+                            type="text" 
+                            name="username" 
+                            id="user" 
+                            placeholder="username" 
+                            value="Anonymous User"
+                            required />
+                    </label>
+                </div>
+                <div class="postContR">
+                </div>
+                <textarea class="twtTxt" id="twtContent" rows="10" cols="100" placeholder="Enter your text..." maxlength="280" name="tweet" required></textarea>
+            </div>
+            <div class="mainFooter">
+                <button class="addTwt" type="submit">Post Tweet</button>
+            </div>
+        </form>
+    </main>
+    <hr class="bottomHr">
+    <footer>
+        <p class="Copyright">No Copyright</p>
+    </footer>
+</body>
+</html>

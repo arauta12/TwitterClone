@@ -5,7 +5,7 @@ const path = require('path');
 
 
 router.get('^/$|/index(.html)?', (req, res) => {
-    console.log(`${req.method} request for ${req.url}...`);
+    console.log(`${req.method} for ${req.url}...`);
     res.sendFile(path.join(__dirname, '..', 'views', 'index.html'));
 });
 

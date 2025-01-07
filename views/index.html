@@ -4,12 +4,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Twitter Clone</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="image" href="imgs/anon-user">
 </head>
 <body>
-    <h1>Welcome to Twitter Clone</h1>
-    <form action="http://localhost:5000/login" method="get">
-        <label for="input-user">Enter your username: <input type="text" id="input-user" name="user" required></label>
-        <button type="submit">Login</button>
-    </form>
+    <header class="twtHead">
+        <!-- Logo -->
+        <img class="imgIcon" src="/imgs/twitterclonebird.jpg" alt="a blue bird"/>
+        <div class="button-cont">
+            <button class="head" id="home" onclick="location.href='http://localhost:5000/'">Home</button></div><div class="button-cont"><button 
+                class="head" 
+                id="latest"
+                onclick="location.href=`http://localhost:5000/newPost`;"
+        >New Post</button></div>
+    </header>
+    <hr>
+    <main id="posts">
+        <script>
+            function sendProperTime(duration) {
+                duration /= 1000;
+
+                if (Math.round(duration) < 60) return `${Math.round(duration)} s`;
+                duration /= 60;
+
+                if (Math.round(duration) < 60) return `${Math.round(duration)} m`;
+                duration /= 60;
+
+                if (Math.round(duration) === 1) return `${Math.round(duration)} hr`;
+                if (Math.round(duration) < 24) return `${Math.round(duration)} hrs`;
+                duration /= 24;
+
+                if (Math.round(duration) === 1) return `${Math.round(duration)} dy`;
+                if (Math.round(duration) < 7) return `${Math.round(duration)} dys`;
+                duration /= 7;
+
+                if (Math.round(duration) === 1) return `${Math.round(duration)} wk`;
+                if (Math.round(duration) < 52) return `${Math.round(duration)} wks`;
+                duration /= 52;
+
+                if (Math.round(duration) === 1) return `${Math.round(duration)} yr`;
+                if (Math.round(duration) < 365) return `${Math.round(duration)} yrs`;
+                duration /= 365;
+                return `${Math.round(duration)} yrs`;
+            }
+            
+            fetch('http://localhost:5000/posts').then(response => response.json())
+            .then(posts => {
+                if (!posts.length) {
+                    const txtResp = document.createElement('article');
+                    txtResp.className = "emptyList";
+                    txtResp.innerText = "No posts to show.";
+                    document.getElementById('posts').appendChild(txtResp);
+                } else {
+                    posts.forEach(post => {
+                        const postItem = document.createElement('article');
+                        postItem.className = "infoBox";
+                        const now = new Date();
+                        const postTime = new Date(post.date);
+                        const ms_diff = now - postTime;
+                        const diff = sendProperTime(ms_diff);
+                        postItem.innerHTML += `
+                                <div class="postContL">
+                                    <img src="imgs/anon-user.jpg" alt="profile-picture">
+                                </div><div class="postContR">
+                                    <p class="post-user"><strong>${post.username}</strong> &#183; ${diff}</p>
+                                    <p class="post-content">${post.content}</p>`;
+                        document.getElementById('posts').appendChild(postItem);
+                        document.getElementById('posts').innerHTML += '<hr>';
+                    });
+                }
+            });
+        </script>
+    </main>
+    <hr>
+    <footer>
+        <p class="Copyright">No Copyright</p>
+    </footer>
 </body>
 </html>

@@ -34,7 +34,6 @@ header, main, footer {
     margin-right: auto;
 }
 
-/* Header */
 header {
     height: 135px;
 }
@@ -82,48 +81,102 @@ header {
 }
 
 hr {
-    margin: auto;
+    margin: 0;
     border: 1px solid lightgrey;
     width: 100%;
 }
 
 /* main */
 main {
-    min-height: 150px;
+    min-height: 190px;
     flex-grow: 1;
-}
-
-.emptyList {
-    margin: 30px 0;
-    text-align: center;
-    font-size: 25px;
-}
-
-.infoBox {
     padding: 10px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.infoBox {
+    margin-bottom: 10px;
     display: flex;
     flex-direction: row;
 }
+
+#twtForm {
+    height: 190px;
+    width: 100%;
+    flex-grow: 1;
+}
+
 .postContL {
     height: 100%;
-    width: 100px;
-    margin-right: 20px;
+    width: 150px;
+    margin-right: 10px;
 }
 
-.postContR {
-    margin-right: 20px;
-}
-
-.post-user {
+.username {
+    width: 100%;
     margin: 0;
     margin-bottom: 10px;
 }
 
-.post-content {
-    margin: 0;
+#user {
+    width: 100%;
+    text-align: center;
 }
 
-/* footer */
+textarea {
+    resize: vertical;
+    border-radius: 10px;
+    border: 2px solid lightblue;
+    padding: 10px;
+    font-size: 15px;
+}
+
+img {
+    width: 100%;
+}
+
+input[type="text"] {
+    width: 100px;
+    padding: 2px;
+}
+
+
+/* button area */
+.mainFooter {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.addTwt {
+    cursor: pointer;
+    padding: 13px;
+    height: 60px;
+    background-color: white;
+    border: 2px solid blue;
+    border-radius: 10px;
+    font-size: 1.7rem;
+    color: blue;
+    font-weight: bold;
+    transition: background-color 0.15s, color 0.15s;
+}
+
+.addTwt:hover {
+    background-color: blue;
+    color: white;
+}
+
+.addTwt:active {
+    opacity: 0.5;
+}
+
+.bottomHr {
+    margin-top: 10px;
+}
+
+/* Footer */
 footer {
     height: 100px;
     padding: 10px;
@@ -135,8 +188,4 @@ footer {
     font-size: 30px;
     text-align: center;
     align-content: center;
-}
-
-img {
-    width: 100px;
 }

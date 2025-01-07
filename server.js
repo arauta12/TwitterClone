@@ -8,6 +8,7 @@ const mongoose = require('mongoose');
 const connectDB = require('./config/dbConfig');
 const PORT = process.env.PORT || process.env.DEF_PORT;
 
+
 connectDB();
 
 app.use(express.json());
@@ -16,20 +17,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/', express.static(path.join(__dirname, '/public')));
 
 app.use('/', require('./route/root'));
-app.use('/login', require('./route/login'));
-app.get('/success', (req, res) => {
-    res.send(`
-        <h1>Success! Logging in...</h1>
-        <script>
-            setTimeout(() => location.href='/home?user=${process.env.USER}', 1000);
-        </script>
-    `);
-});
-app.use('^/home', require('./route/api/home'));
-app.use('^/posts', require('./route/api/posts'));
+app.use('^(/posts)', require('./route/api/posts'));
+app.use('^(/newPost)', require('./route/api/newPost'));
 
 app.all('*', (req, res) => {
-    console.log(`${req.method} request for ${req.url} ${req}...`);
     res.status(404);
     if (req.accepts('html')) {
         res.sendFile(path.join(__dirname, 'views', '404.html'));
@@ -41,6 +32,6 @@ app.all('*', (req, res) => {
 });
 
 mongoose.connection.once('open', () => {
-    console.log('Connected to MongoDB');
+    console.log('Connected to database.');
     app.listen(PORT, () => console.log(`Server is running on port ${PORT}...`));
 });
