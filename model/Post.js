@@ -10,10 +10,10 @@ const postSchema = new Schema({
         type: Date,
         required: true
     },
-    image: {
-        type: String,
-        required: false
-    },
+    // image: {
+    //     type: String,
+    //     required: false
+    // },
     content: {
         type: String,
         required: false

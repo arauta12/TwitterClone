@@ -48,6 +48,7 @@
                 return `${Math.round(duration)} yrs`;
             }
             
+            // image insertion
             fetch('http://localhost:5000/posts').then(response => response.json())
             .then(posts => {
                 if (!posts.length) {
